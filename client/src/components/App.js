@@ -4,7 +4,6 @@ import LandingPage from "./LandingPage/LandingPage";
 import Items from "./Items/Items";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Detail from "./Detail/Detail";
-import ExTable from "./example/ExTable";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/items" element={<Items />} />
             <Route path="/movie/:movieId" element={<Detail />} />
-            <Route path="/example/table" element={<ExTable />} />
           </Routes>
         </Router>
       </div>
