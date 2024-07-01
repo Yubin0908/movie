@@ -3,9 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {API_KEY, API_URL, IMAGE_BASE_URL} from '../Config';
 import MainImage from "../LandingPage/Section/MainImage";
 import MovieInfo from './MovieInfo';
-import {Button, Divider, Row} from "antd";
-import GridCard from "../common/GridCard";
-import AntCard from "../common/AntCard";
+import {Button, Divider} from "antd";
 import ImagesList from "./ImagesList";
 
 const Detail = () => {

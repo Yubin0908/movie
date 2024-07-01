@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {API_URL, API_KEY, IMAGE_BASE_URL} from '../Config';
 import MainImage from "./Section/MainImage";
-import GridCard from "../common/GridCard";
 import {Button, Row} from "antd";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import AntCard from "../common/AntCard";
 
 function LandingPage () {
@@ -24,7 +23,6 @@ function LandingPage () {
         setMainMovieImage(res.results[0]);
         setCurrentPage(res.page);
         setMovies([...Movies, ...res.results]);
-        // console.log(Movies);
       });
   }
 
@@ -43,7 +41,11 @@ function LandingPage () {
 
   return (
     <>
-      <div style={{ width: '100%' }}>
+      <div>
+        {/*<Link to='/items'>items 이동</Link> &nbsp;*/}
+        {/*<a href="/items">[a Tag]itmes로 이동</a>*/}
+      </div>
+      <div style={{width: '100%'}}>
         {
           MainMovieImage &&
           <MainImage image={`${IMAGE_BASE_URL}w1280${MainMovieImage.poster_path}`}
@@ -64,8 +66,8 @@ function LandingPage () {
                 return (
                   <React.Fragment key={movie.id}>
                     <AntCard landingPage
-                              path={`${IMAGE_BASE_URL}w400${movie.poster_path}`}
-                              title={movie.title} id={movie.id}
+                             path={`${IMAGE_BASE_URL}w400${movie.poster_path}`}
+                             title={movie.title} id={movie.id}
                     />
                   </React.Fragment>
                 );
@@ -77,8 +79,8 @@ function LandingPage () {
           </Row>
         </div>
       </div>
-      <div style={{display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
-        <button onClick={loadMoreItems}> 더보기 </button>
+      <div style={{display: 'flex', justifyContent: 'center', margin: '20px 0'}}>
+        <button onClick={loadMoreItems}> 더보기</button>
       </div>
     </>
   );
