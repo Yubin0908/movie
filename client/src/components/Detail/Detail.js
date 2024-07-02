@@ -5,6 +5,7 @@ import MainImage from "../LandingPage/Section/MainImage";
 import MovieInfo from './MovieInfo';
 import {Button, Divider} from "antd";
 import ImagesList from "./ImagesList";
+import axios from "axios";
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -30,22 +31,34 @@ const Detail = () => {
     // console.log(endpointCast);
 
     // 특정 영화 정보 아이디로 요청
-    fetch(endpointInfo)
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res);
-        setMovie(res);
-    })
+    // fetch(endpointInfo)
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     // console.log(res);
+    //     setMovie(res);
+    // })
+
+    // fetch --> axios 변경
+    axios(endpointInfo)
+      .then(res => setMovie(res.data));
 
     // 출연진 요청
-    fetch(endpointCast)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        setCasts(res.cast);
-        setCrews(res.crew);
-    })
-  }, []);
+  //   fetch(endpointCast)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res);
+  //       setCasts(res.cast);
+  //       setCrews(res.crew);
+  //   })
+  // }, []);
+
+  // fetch --> axios 변경
+  axios(endpointCast)
+    .then(res => {
+      setCasts(res.data.cast);
+      setCrews(res.data.crew);
+    });
+  });
 
   // button Handler
   const toggleActorView = () => {

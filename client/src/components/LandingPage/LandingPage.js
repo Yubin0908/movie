@@ -4,6 +4,7 @@ import MainImage from "./Section/MainImage";
 import {Button, Row} from "antd";
 import {useNavigate} from "react-router-dom";
 import AntCard from "../common/AntCard";
+import axios from "axios";
 
 function LandingPage () {
   const [Movies, setMovies] = useState([]);
@@ -15,15 +16,23 @@ function LandingPage () {
     const endPoint = `${API_URL}popular?api_key=${API_KEY}&language=en-US&page=${page}`;
 
 
-    fetch(endPoint)
-      .then(res => res.json())
+    // fetch(endPoint)
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     // console.log(res);
+    //     // console.log(res.results);
+    //     setMainMovieImage(res.results[0]);
+    //     setCurrentPage(res.page);
+    //     setMovies([...Movies, ...res.results]);
+    //   });
+
+    // fetch --> axios 변경
+    axios(endPoint)
       .then(res => {
-        // console.log(res);
-        // console.log(res.results);
-        setMainMovieImage(res.results[0]);
-        setCurrentPage(res.page);
-        setMovies([...Movies, ...res.results]);
-      });
+        setMovies([...Movies, ...res.data.results]);
+        setMainMovieImage(res.data.results[0]);
+        setCurrentPage(res.data.page);
+      })
   }
 
   /* 최초 렌더링 되는 시점에만 실행되는 함수 */
