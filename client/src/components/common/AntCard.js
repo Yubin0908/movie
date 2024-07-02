@@ -36,11 +36,11 @@ const AntCard = props => {
                 style={{width:'100%'}}
                 cover={
                   <img src={props.path}
-                       alt={props.castName}
+                       alt={props.name}
                   />
                 }
           >
-            <Meta title={props.castName}></Meta>
+            <Meta title={props.name}></Meta>
           </Card>
         </div>
       </Col>

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {API_URL, API_KEY, IMAGE_BASE_URL} from '../Config';
 import MainImage from "./Section/MainImage";
 import {Button, Row} from "antd";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import AntCard from "../common/AntCard";
 
 function LandingPage () {

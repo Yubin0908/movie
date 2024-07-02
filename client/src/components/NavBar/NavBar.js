@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
+import {Link} from "react-router-dom";
 const { Header } = Layout;
 
 // const items1 = ['Home'].map((key) => ({
@@ -8,7 +9,7 @@ const { Header } = Layout;
 // }));
 const items = [{
   key: 'Home',
-  label: (<a href='/'>Home</a>),
+  label: <a href="/movie">Home</a>,
 }];
 
 const NavBar = () => {
